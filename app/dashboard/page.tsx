@@ -1,12 +1,19 @@
-import { ProductContainer } from './components/ProductContainer';
+import { getProducts } from '@/lib/getProducts';
+import { Title, ProductContainer } from './components';
+import { RefreshButton } from './components/RefreshButton';
+import ProductTable from './components/ProductTable';
 
-const Dashboard = () => {
-  const arr = new Array(50).fill('a');
+const Dashboard = async () => {
+  const products = await getProducts();
 
   return (
     <div className='h-full'>
-      <h2 className='text-xl font-medium text-zinc-100'>Todos los productos</h2>
-      <ProductContainer cols={'4'} products={arr} />
+      <div className='flex items-center justify-between'>
+        <Title text='todos los productos' />
+        <RefreshButton />
+      </div>
+      {/* <ProductContainer products={products} /> */}
+      <ProductTable products={products} />
     </div>
   );
 };
