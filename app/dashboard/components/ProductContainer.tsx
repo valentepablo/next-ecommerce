@@ -1,18 +1,23 @@
-import { ProductCard } from './ProductCard';
+import { Product } from '@/interfaces/interfaces';
+import { ProductCard } from './index';
 
-export function ProductContainer({
-  cols,
-  products,
-}: {
-  cols: string;
-  products: any[];
-}) {
+type Props = {
+  products: Product[];
+};
+
+export function ProductContainer({ products }: Props) {
+  console.log(products);
   return (
-    <div
-      className={`grid h-full grid-cols-${cols} gap-10 py-4 overflow-y-auto custom-scrollbar`}>
-      {products.map((item, i) => (
-        <ProductCard key={i} />
-      ))}
+    <div className='h-full py-4'>
+      {products.length === 0 ? (
+        <p>No se encontraron productos.</p>
+      ) : (
+        <div className='gap-10 pr-1 overflow-y-auto product-container-grid custom-scrollbar'>
+          {products.map((product) => (
+            <ProductCard key={product._id} product={product} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

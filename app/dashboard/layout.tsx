@@ -1,5 +1,29 @@
 import Link from 'next/link';
 
+const Layout = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <div className='flex h-screen text-zinc-500 bg-zinc-950 '>
+      <aside className='p-10 w-72 shrink-0'>
+        <ul className='flex flex-col gap-6'>
+          <DashboardLink
+            path='dashboard'
+            name='productos'
+            icon={<ProductsIcon />}
+          />
+          <DashboardLink
+            path='dashboard/nuevo-producto'
+            name='añadir producto'
+            icon={<CreateProductIcon />}
+          />
+        </ul>
+      </aside>
+      <main className='p-10 overflow-y-hidden grow'>{children}</main>
+    </div>
+  );
+};
+
+export default Layout;
+
 const ProductsIcon = () => {
   return (
     <svg
@@ -54,27 +78,3 @@ const DashboardLink = ({
     </Link>
   );
 };
-
-const Layout = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <div className='flex h-screen text-zinc-500 bg-zinc-950 '>
-      <aside className='p-10 w-72 shrink-0'>
-        <ul className='flex flex-col gap-6'>
-          <DashboardLink
-            path='dashboard'
-            name='productos'
-            icon={<ProductsIcon />}
-          />
-          <DashboardLink
-            path='dashboard/nuevo-producto'
-            name='añadir producto'
-            icon={<CreateProductIcon />}
-          />
-        </ul>
-      </aside>
-      <main className='p-10 overflow-y-hidden grow'>{children}</main>
-    </div>
-  );
-};
-
-export default Layout;
