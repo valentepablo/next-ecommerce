@@ -6,7 +6,6 @@ type Props = {
 };
 
 export function ProductContainer({ products }: Props) {
-  console.log(products);
   return (
     <div className='h-full py-4'>
       {products.length === 0 ? (

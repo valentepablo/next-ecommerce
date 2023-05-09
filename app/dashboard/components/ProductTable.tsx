@@ -62,7 +62,7 @@ const ProductTable = ({ products }: Props) => {
         Cell: ({ row }: any) => (
           <button
             className='transition duration-300 hover:text-zinc-100'
-            onClick={() => alert('Editando ' + row.values.name)}>
+            onClick={() => handleEdit(row.original._id)}>
             Editar
           </button>
         ),
@@ -93,6 +93,10 @@ const ProductTable = ({ products }: Props) => {
     await deleteProduct(productId);
     console.log('here');
     router.refresh();
+  };
+
+  const handleEdit = async (productId: Props) => {
+    router.push(`/dashboard/editar/${productId}`);
   };
 
   return (

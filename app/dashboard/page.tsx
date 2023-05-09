@@ -1,5 +1,5 @@
 import { getProducts } from '@/lib/getProducts';
-import { Title, ProductContainer } from './components';
+import { Title } from './components';
 import { RefreshButton } from './components/RefreshButton';
 import ProductTable from './components/ProductTable';
 
@@ -12,7 +12,6 @@ const Dashboard = async () => {
         <Title text='todos los productos' />
         <RefreshButton />
       </div>
-      {/* <ProductContainer products={products} /> */}
       <ProductTable products={products} />
     </div>
   );
