@@ -2,8 +2,8 @@ import Link from 'next/link';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className='flex h-screen text-zinc-500 bg-zinc-950 '>
-      <aside className='p-10 w-72 shrink-0'>
+    <div className='flex h-screen mx-auto text-zinc-500 max-w-7xl '>
+      <aside className='w-64 p-10 shrink-0'>
         <ul className='flex flex-col gap-6'>
           <DashboardLink
             path='dashboard'
@@ -11,7 +11,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             icon={<ProductsIcon />}
           />
           <DashboardLink
-            path='dashboard/nuevo-producto'
+            path='dashboard/nuevo'
             name='añadir producto'
             icon={<CreateProductIcon />}
           />
